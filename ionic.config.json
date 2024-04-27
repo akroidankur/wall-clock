@@ -1,0 +1,11 @@
+{
+  "name": "Wall Clock",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "android": {
+    "minVersion": "21",
+    "targetVersion": "29"
+  }
+}

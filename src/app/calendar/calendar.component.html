@@ -1,0 +1,34 @@
+<section>
+  <header>
+    <div class="day-month">
+      <div class="month">{{ getMonthThreeLetters(monthNames[currentMonth]) }} </div>
+      <div class="day">{{ getMonthThreeLetters(days[currentDay]) | titlecase }} </div>
+    </div>
+    <div class="date-year">
+      <div class="date"> {{ currentDate }} </div>
+      <div class="year">{{currentYear}}</div>
+    </div>
+  </header>
+
+  <div class="calendar-body">
+    <div class="calendar-week">
+      <ng-container *ngFor="let day of days; let i = index">
+        <div class="days">{{day | titlecase}}</div>
+      </ng-container>
+    </div>
+
+    <div class="calendar-days">
+      <ng-container *ngFor="let day of calendarDays; let i = index;">
+
+        <ng-container *ngIf="day; else elseBlock">
+          <div class="dates" [ngClass]="{'active-date': day === currentDate}">{{day}}</div>
+        </ng-container>
+
+        <ng-template #elseBlock>
+          <div class="dates"></div>
+        </ng-template>
+
+      </ng-container>
+    </div>
+  </div>
+</section>
