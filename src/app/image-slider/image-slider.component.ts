@@ -7,16 +7,18 @@ import { Subject, interval, takeUntil } from 'rxjs';
   styleUrls: ['./image-slider.component.scss'],
 })
 export class ImageSliderComponent  implements OnInit, OnDestroy {
-
-  constructor() { }
+  readonly vid1 = '../../assets/InShot_20240311_210943600.mp4'
+  readonly vid2 = '../../assets/VID20240313071016.mp4'
 
   images: Array<String> = [];
   currentIndex: number = 0;
 
-  private imagePathPrefix: string = '../../assets/'
-  private imagePathSuffix: string = '.jpg'
+  private readonly imagePathPrefix: string = '../../assets/'
+  private readonly imagePathSuffix: string = '.jpg'
 
   private destroy$ = new Subject<void>();
+
+  constructor() { }
 
   ngOnInit() {
     this.updateImagePath();
